@@ -17,24 +17,26 @@ class MyPdoProxy
 
     }
 
-    public function addMaster($host, $username, $password, $database)
+    public function addMaster($host, $port, $username, $password, $database)
     {
-        $identifier = md5($host . $username . $password . $database);
+        $identifier = md5($host . $port . $username . $password . $database);
         $this->connectinfo['master'][$identifier] = array(
             'identifier' => $identifier,
             'host' => $host,
+	    'port' => $port,
             'database' => $database,
             'username' => $username,
             'password' => $password
         );
     }
 
-    public function addSlave($host, $username, $password, $database)
+    public function addSlave($host, $port, $username, $password, $database)
     {
-        $identifier = md5($host . $username . $password . $database);
+        $identifier = md5($host . $port . $username . $password . $database);
         $this->connectinfo['slave'][$identifier] = array(
             'identifier' => $identifier,
             'host' => $host,
+	    'port' => $port,
             'database' => $database,
             'username' => $username,
             'password' => $password
@@ -55,7 +57,8 @@ class MyPdoProxy
             try {
                 if ($isMaster) {
                     $dbDriver = 'mysql:host=' . $this->connectinfo['master'][$identifier]['host']
-                        . ';dbname=' . $this->connectinfo['master'][$identifier]['database'];
+                        . ';port=' . $this->connectinfo['master'][$identifier]['port']
+			. ';dbname=' . $this->connectinfo['master'][$identifier]['database'];
 
                     $this->master[$identifier] = new MyPdo(
                         $dbDriver,
@@ -66,7 +69,8 @@ class MyPdoProxy
                     $this->master[$identifier]->query('SET NAMES utf8');
                 } else {
                     $dbDriver = 'mysql:host=' . $this->connectinfo['slave'][$identifier]['host']
-                        . ';dbname=' . $this->connectinfo['slave'][$identifier]['database'];
+                        . ';port=' . $this->connectinfo['slave'][$identifier]['port']
+			. ';dbname=' . $this->connectinfo['slave'][$identifier]['database'];
 
                     $this->slave[$identifier] = new MyPdo(
                         $dbDriver,

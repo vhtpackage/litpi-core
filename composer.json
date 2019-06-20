@@ -1,5 +1,5 @@
 {
-    "name": "voduytuan/litpi-core",
+    "name": "vhtpackage/litpi-core-custom",
     "description": "Litpi core classes used for Litpi framework and Litpi Slim framework",
     "autoload": {
         "psr-0": {
@@ -9,8 +9,8 @@
     "license": "GPL",
     "authors": [
         {
-            "name": "Vo Duy Tuan",
-            "email": "tuanmaster2012@gmail.com"
+            "name": "VHT",
+            "email": "docker@vht.com.vn"
         }
     ]
 }
