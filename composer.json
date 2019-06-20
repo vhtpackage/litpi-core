@@ -13,6 +13,6 @@
             "email": "docker@vht.com.vn"
         }
     ],
-    "minimum-stability" : "stable"
+    "minimum-stability" : "dev"
 
 }
