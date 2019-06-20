@@ -1,5 +1,5 @@
 {
-    "name": "vhtpackage/litpi-core-custom",
+    "name": "vhtpackage/litpi-core",
     "description": "Litpi core classes used for Litpi framework and Litpi Slim framework",
     "autoload": {
         "psr-0": {
