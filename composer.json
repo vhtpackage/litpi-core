@@ -12,7 +12,5 @@
             "name": "VHT",
             "email": "docker@vht.com.vn"
         }
-    ],
-    "minimum-stability" : "dev"
-
+    ]
 }
